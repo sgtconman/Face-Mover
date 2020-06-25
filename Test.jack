@@ -1,0 +1,24 @@
+
+class Main {
+	function void main() {
+    do Output.printString("Hello, this is Face Run. Please run the face.");
+		do Output.println();
+		do Output.println();
+		do Output.printString("Enjoy.");
+		do Output.println();
+		do Output.println();
+        do Output.printString("Initializing");	
+   
+		var int length;
+		var int i, sum;
+
+		do Screen.clearScreen();
+		
+
+		do Face_run.run();
+		return;
+		}
+}
+
+
+

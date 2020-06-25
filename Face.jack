@@ -1,0 +1,35 @@
+
+class Face {
+
+
+	field int x, y;
+   
+    constructor Face new(int x_cord, int y_cord) {
+		let x = x_cord;
+		let y = y_cord;
+		return this;
+	}
+
+	method void draw() {
+		var int memAddress;
+		let memAddress = 16384;
+		do Memory.poke(memAddress+0, 2016);
+		do Memory.poke(memAddress+32, 7224);
+		do Memory.poke(memAddress+64, 12300);
+		do Memory.poke(memAddress+96, 24582);
+		do Memory.poke(memAddress+128, 16386);
+		do Memory.poke(memAddress+160, -16381);
+		do Memory.poke(memAddress+192, -29647);
+		do Memory.poke(memAddress+224, -29647);
+		do Memory.poke(memAddress+256, -32767);
+		do Memory.poke(memAddress+288, -32383);
+		do Memory.poke(memAddress+320, -16381);
+		do Memory.poke(memAddress+352, 17442);
+		do Memory.poke(memAddress+384, 25542);
+		do Memory.poke(memAddress+416, 12300);
+		do Memory.poke(memAddress+448, 7224);
+		do Memory.poke(memAddress+480, 2016);
+		return;
+	}	
+
+}

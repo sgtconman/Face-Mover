@@ -1,0 +1,24 @@
+
+
+class Face_run {
+
+	field Face face;
+	
+	constructor Face_run new() {
+		return this;
+	}
+
+	method void run() {
+		
+		var Face Face1;
+		let Face1 = Face.new(0,0);
+		do Face1.draw();
+		
+	
+		return;
+	}
+
+
+
+
+}

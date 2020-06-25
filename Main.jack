@@ -1,0 +1,35 @@
+
+
+class Main {
+	function void main() {
+		var int i;
+		var Face_run face_run1;
+				
+		// writes intro text to screen
+		do Output.printString("Hello, this is Face Run. Please run the face.");
+		do Output.println();
+		do Output.println();
+		do Output.printString("Enjoy.");
+		do Output.println();
+		do Output.println();
+        do Output.printString("Initializing");	
+
+		// gives user time to read intro screen
+		let i = 0;
+		while (i <2) {
+			do Output.printString(".");
+			do Sys.wait(500);
+			let i = i + 1;
+		}
+
+		do Screen.clearScreen();
+
+		// calls the core program
+
+		let face_run1 = Face_run.new();
+		do face_run1.run();
+		return;
+	}
+}
+
+
