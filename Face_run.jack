@@ -2,23 +2,46 @@
 
 class Face_run {
 
-	field Face face;
+	field Face face1;
 	
 	constructor Face_run new() {
 		return this;
 	}
 
-	method void run() {
-		
-		var Face Face1;
-		let Face1 = Face.new(0,0);
-		do Face1.draw();
-		
-	
+	method void dispose() {
+		do face1.dispose();
+		do Memory.deAlloc(this);
 		return;
 	}
 
-
+	method void run() {
+		var bool exit;
+		var int key;
+		
+		let exit = false;
+		let key = 0;
+		
+		let face1 = Face.new(0,0);
+		do face1.draw();	
+		
+		while (~exit) {
+			while (key = 0) {
+				let key = Keyboard.keyPressed();
+				do Sys.wait(10);
+			}
+			if (key = 81)  { let exit = true; }     // q key
+			if (key = 131) { do face1.moveup(); }   // up arrow
+			if (key = 133) { do face1.movedown(); }   // down arrow
+			if (key = 130) { do face1.moveleft(); }   // left arrow
+			if (key = 132) { do face1.moveright(); }   // right arrow
+			
+			let key = 0;
+		}
+		
+		do face1.erase();
+		return;
+	}
+	
 
 
 }

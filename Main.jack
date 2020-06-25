@@ -9,14 +9,14 @@ class Main {
 		do Output.printString("Hello, this is Face Run. Please run the face.");
 		do Output.println();
 		do Output.println();
-		do Output.printString("Enjoy.");
+		do Output.printString("Press arrow keys to run the face and Q to end the face. Enjoy.");
 		do Output.println();
 		do Output.println();
         do Output.printString("Initializing");	
 
 		// gives user time to read intro screen
 		let i = 0;
-		while (i <2) {
+		while (i <10) {
 			do Output.printString(".");
 			do Sys.wait(500);
 			let i = i + 1;
@@ -24,10 +24,10 @@ class Main {
 
 		do Screen.clearScreen();
 
-		// calls the core program
-
+		// calls the core program and disposes after exiting
 		let face_run1 = Face_run.new();
 		do face_run1.run();
+		do face_run1.dispose();
 		return;
 	}
 }

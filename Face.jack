@@ -2,17 +2,24 @@
 class Face {
 
 
-	field int x, y;
-   
+	field int x, y, xsize, ysize;
+	
     constructor Face new(int x_cord, int y_cord) {
 		let x = x_cord;
 		let y = y_cord;
+		let ysize = 16;
+		let xsize = 1;
 		return this;
+	}
+
+	method void dispose() {
+		do Memory.deAlloc(this);
+		return;
 	}
 
 	method void draw() {
 		var int memAddress;
-		let memAddress = 16384;
+		let memAddress = 16384 + x + (y*32);
 		do Memory.poke(memAddress+0, 2016);
 		do Memory.poke(memAddress+32, 7224);
 		do Memory.poke(memAddress+64, 12300);
@@ -31,5 +38,63 @@ class Face {
 		do Memory.poke(memAddress+480, 2016);
 		return;
 	}	
+
+	method void erase() {
+		var int memAddress;
+		let memAddress = 16384 + x + (y*32);
+		do Memory.poke(memAddress+0, 0);
+		do Memory.poke(memAddress+32, 0);
+		do Memory.poke(memAddress+64, 0);
+		do Memory.poke(memAddress+96, 0);
+		do Memory.poke(memAddress+128, 0);
+		do Memory.poke(memAddress+160, 0);
+		do Memory.poke(memAddress+192, 0);
+		do Memory.poke(memAddress+224, 0);
+		do Memory.poke(memAddress+256, 0);
+		do Memory.poke(memAddress+288, 0);
+		do Memory.poke(memAddress+320, 0);
+		do Memory.poke(memAddress+352, 0);
+		do Memory.poke(memAddress+384, 0);
+		do Memory.poke(memAddress+416, 0);
+		do Memory.poke(memAddress+448, 0);
+		do Memory.poke(memAddress+480, 0);
+		return;
+	}	
+
+	method void moveup() {
+		do erase();
+		if (y > 0) {
+			let y = y - 1;
+		}
+		do draw();
+		return;
+	}
+
+	method void movedown() {
+		do erase();
+		if ((y+ysize) < 255) {
+			let y = y + 1;
+		}
+		do draw();
+		return;
+	}
+
+	method void moveleft() {
+		do erase();
+		if (x > 0) {
+			let x = x - 1;
+		}
+		do draw();
+		return;
+	}
+
+	method void moveright() {
+		do erase();
+		if ((x+xsize) < 32) {
+			let x = x + 1;
+		}
+		do draw();
+		return;
+	}
 
 }

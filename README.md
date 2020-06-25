@@ -1,0 +1,3 @@
+Run directory of vm files using a Jack vm translator or emulator
+
+However, it is certainly not worth actually running...
